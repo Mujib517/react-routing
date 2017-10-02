@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Switch, Route } from 'react-router-dom';
+import { Redirect, Link, Switch, Route } from 'react-router-dom';
 import More from './more.component';
 import Reviews from './reviews.component';
 
@@ -18,7 +18,7 @@ export default (props) => {
             </div>
             <div>
                 <Switch>
-                    <Route path={'/users/' + props.match.params.id + '/more'} exact={true} component={More} />
+                    <Redirect to={'/users/' + props.match.params.id + '/more'} exact={true} component={More} />
                     <Route path={'/users/' + props.match.params.id + '/reviews'} exact={true} component={Reviews} />
                 </Switch>
             </div>
