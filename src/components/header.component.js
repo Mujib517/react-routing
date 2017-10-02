@@ -1,18 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Redirect, Link, Switch, Route } from 'react-router-dom';
 
-const Header = () => {
+const Header = (props) => {
 
     return (
         <header>
             <nav>
-                <div class="container">
-                    <div class="navbar navbar-inverse">
-                        <div class="navbar-header">
-                            <div class="navbar-brand">React App</div>
+                <div className="container">
+                    <div className="navbar navbar-inverse">
+                        <div className="navbar-header">
+                            <div className="navbar-brand">React App</div>
                         </div>
-                        <ul class="nav navbar-nav">
-                            <li><Link to="/">Home</Link></li>
+                        <ul className="nav navbar-nav">
+                            <li><Link className="active" to="/">Home</Link></li>
                             <li><Link to="/users">Users</Link></li>
                             <li><Link to="/about">About</Link></li>
                             <li><Link to="/contact">Contact</Link></li>

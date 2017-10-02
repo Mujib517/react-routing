@@ -10,7 +10,7 @@ import NewUser from './new-user.component';
 const Main = () => {
 
     return (
-        <main class="container">
+        <main className="container">
 
             <Switch>
                 <Route path="/" exact={true} component={Home} />
