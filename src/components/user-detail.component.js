@@ -18,7 +18,8 @@ export default (props) => {
             </div>
             <div>
                 <Switch>
-                    <Redirect to={'/users/' + props.match.params.id + '/more'} exact={true} component={More} />
+                    <Redirect from={'/users/' + props.match.params.id} to={'/users/' + props.match.params.id + '/more'} exact={true} />
+                    <Route path={'/users/' + props.match.params.id + '/more'} exact={true} component={More} />
                     <Route path={'/users/' + props.match.params.id + '/reviews'} exact={true} component={Reviews} />
                 </Switch>
             </div>
