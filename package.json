@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack -w"
+    "dev": " concurrently --kill-others \"npm run build\" \"npm start\"",
+    "build": "webpack -w",
+    "start": "webpack-dev-server"
   },
   "keywords": [],
   "author": "MD M Rahman <mujib517@gmail.com>",
@@ -13,6 +14,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "bootstrap": "^3.3.7",
+    "concurrently": "^3.5.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router-dom": "^4.2.2"
