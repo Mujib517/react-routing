@@ -1,5 +1,4 @@
 import React from 'react';
-import { history, withRouter } from 'react-router-dom';
 
 class NewUser extends React.Component {
 
