@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default (props) => {
     return (
-        <div class="well">
+        <div className="well">
             <Link to={'/users/' + props.user.login} > {props.user.login}</Link>
         </div>
     );
