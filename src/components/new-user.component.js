@@ -34,10 +34,10 @@ class NewUser extends React.Component {
                 <form noValidate="false">
                     <h1>Add new user</h1>
                     <div className="form-group">
-                        <input type="text" placeholder="Name" required className="form-control" name="name" onChange={this.onChange} />
+                        <input type="text" placeholder="Name" required className={this.state.user.name ? 'form-control success' : 'form-control error'} name="name" onChange={this.onChange} />
                     </div>
                     <div className="form-group">
-                        <input type="text" placeholder="Email" required className="form-control" name="email" onChange={this.onChange} />
+                        <input type="text" placeholder="Email" required className={this.state.user.name ? 'form-control success' : 'form-control error'} name="email" onChange={this.onChange} />
                     </div>
                     <div className="form-group">
                         <input value="Save" type="submit" onClick={this.save} className="btn btn-success" disabled={!this.state.user.isFormValid} />
