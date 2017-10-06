@@ -9,6 +9,13 @@ export default class Users extends React.Component {
         super(props);
 
         this.state = { users: [] };
+        this.loadData = this.loadData.bind(this);
+        this.onRemove = this.onRemove.bind(this);
+        this.loadData();
+    }
+
+    onRemove(data) {
+        console.log("remove on parent", data);
         this.loadData();
     }
 
@@ -25,7 +32,7 @@ export default class Users extends React.Component {
         return (
             <div>
                 <Link to="users/new">New User</Link>
-                {users.map(usr => <User key={usr.login} user={usr} />)}
+                {users.map(usr => <User key={usr.login} user={usr} onRemove={this.onRemove} />)}
             </div>
         )
     }
