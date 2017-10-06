@@ -4,3 +4,15 @@
 .success{
     border-left:5px solid green !important;
 }
+.loading{
+    position: fixed;
+    width:150px;
+    height: 40px;
+    background-color:white;
+    border:1px solid gray;
+    top:43%;
+    left:48%;
+}
+.hidden{
+    display: none;
+}
