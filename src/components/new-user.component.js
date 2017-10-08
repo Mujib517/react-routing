@@ -1,4 +1,5 @@
 import React from 'react';
+import UserAction from '../actions/user.action';
 
 class NewUser extends React.Component {
 
@@ -11,8 +12,13 @@ class NewUser extends React.Component {
     }
 
     save() {
-        console.log(this.state);
-        this.props.history.push('/users');
+
+        let action = {
+            payload: this.state.user,
+            actionType: 'NewUser'
+        };
+        UserAction.add(action);
+       // this.props.history.push('/users');
     }
 
     onChange(evt) {
@@ -24,8 +30,6 @@ class NewUser extends React.Component {
         user.isFormValid = this.state.user.name && this.state.user.email ? true : false;;
 
         this.setState({ user: user });
-
-        console.log(this.state);
     }
 
     render() {
@@ -40,7 +44,7 @@ class NewUser extends React.Component {
                         <input type="text" placeholder="Email" required className={this.state.user.email ? 'form-control success' : 'form-control error'} name="email" onChange={this.onChange} />
                     </div>
                     <div className="form-group">
-                        <input value="Save" type="submit" onClick={this.save} className="btn btn-success" disabled={!this.state.user.isFormValid} />
+                        <input value="Save" onClick={this.save} className="btn btn-success" disabled={!this.state.user.isFormValid} />
                     </div>
                 </form>
             </div>
