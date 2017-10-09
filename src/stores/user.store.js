@@ -1,6 +1,7 @@
 import { EventEmitter } from 'events';
 import Dispatcher from '../dispatcher/dispatcher';
 import axios from 'axios';
+import actionTypes from '../constants/actiontypes';
 
 const CHANGE = 'change';
 
@@ -14,13 +15,13 @@ class UserStore extends EventEmitter {
 
     _register(action) {
         switch (action.actionType) {
-            case 'NewUser':
+            case actionTypes.ADD_USER:
                 this.addNewUser(action.payload);
                 break;
-            case 'Get':
+            case actionTypes.GET_USERS:
                 this.getAll();
                 break;
-            case 'Delete':
+            case actionTypes.REMOVE_USER:
                 this.remove(action.payload);
                 break;
         }
@@ -28,7 +29,7 @@ class UserStore extends EventEmitter {
     }
 
     addNewUser(user) {
-        
+
     }
 
     getAll() {

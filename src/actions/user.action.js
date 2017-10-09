@@ -1,23 +1,24 @@
 import Dispatcher from '../dispatcher/dispatcher';
+import actionTypes from '../constants/actiontypes';
 
 class UserActions {
 
     add(user) {
         Dispatcher.dispatch({
-            actionType: 'NewUser',
+            actionType: actionTypes.ADD_USER,
             payload: user
         });
     }
 
     get() {
         Dispatcher.dispatch({
-            actionType: 'Get'
+            actionType: actionTypes.GET_USERS
         });
     }
 
     remove(user) {
         Dispatcher.dispatch({
-            actionType: 'Delete',
+            actionType:actionTypes.REMOVE_USER,
             payload: user
         });
     }
