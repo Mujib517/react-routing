@@ -18,7 +18,7 @@ class NewUser extends React.Component {
             actionType: 'NewUser'
         };
         UserAction.add(action);
-       // this.props.history.push('/users');
+        this.props.history.push('/users');
     }
 
     onChange(evt) {

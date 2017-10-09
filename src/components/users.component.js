@@ -3,6 +3,7 @@ import User from './user.component';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Spinner from './spinner.component';
+import UserStore from '../stores/user.store';
 
 export default class Users extends React.Component {
 
@@ -11,9 +12,24 @@ export default class Users extends React.Component {
 
         this.state = { users: [], loading: true };
 
-        this.loadData = this.loadData.bind(this);
         this.onRemove = this.onRemove.bind(this);
-        this.loadData();
+    }
+
+    componentDidMount() {
+        UserStore
+            .getAll()
+            .then((response) => this.setState({ users: response.data, loading: false }));
+    }
+
+    onchange() {
+        console.log('hitting on change');
+        this.setState({
+            users: UserStore.getAll()
+        });
+    }
+
+    componentWillUnmount() {
+        UserStore.removeChangeListener(this.onchange);
     }
 
     onRemove(data) {
@@ -21,13 +37,6 @@ export default class Users extends React.Component {
         this.loadData();
     }
 
-    loadData() {
-        axios.get('https://api.github.com/users')
-            .then(response => {
-                console.log(response.data);
-                this.setState({ users: response.data, loading: false });
-            });
-    }
 
     render() {
         let users = this.state.users;
@@ -36,7 +45,7 @@ export default class Users extends React.Component {
 
                 <Link to="users/new">New User</Link>
                 <Spinner loading={this.state.loading} />
-                {users.map(usr => <User key={usr.login} user={usr} onRemove={this.onRemove} />)}
+                {users.map(usr => <User key={usr.id} user={usr} onRemove={this.onRemove} />)}
             </div>
         )
     }

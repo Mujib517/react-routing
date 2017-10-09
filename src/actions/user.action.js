@@ -9,6 +9,12 @@ class UserActions {
         });
     }
 
+    get(){
+        Dispatcher.dispatch({
+            actionType:'Get'
+        });
+    }
+
 }
 
 export default new UserActions();
