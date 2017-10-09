@@ -9,9 +9,16 @@ class UserActions {
         });
     }
 
-    get(){
+    get() {
         Dispatcher.dispatch({
-            actionType:'Get'
+            actionType: 'Get'
+        });
+    }
+
+    remove(user) {
+        Dispatcher.dispatch({
+            actionType: 'Delete',
+            payload: user
         });
     }
 

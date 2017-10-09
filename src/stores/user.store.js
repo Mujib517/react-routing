@@ -20,16 +20,23 @@ class UserStore extends EventEmitter {
             case 'Get':
                 this.getAll();
                 break;
+            case 'Delete':
+                this.remove(action.payload);
+                break;
         }
         this.emitChange();
     }
 
     addNewUser(user) {
-        this.emitChange();
+        
     }
 
     getAll() {
         return axios.get("https://api.github.com/users");
+    }
+
+    remove(user) {
+        console.log('deleting', user);
     }
 
     addChangeListener(callback) {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import UserActions from '../actions/user.action';
 
 export default class UserComponent extends React.Component {
 
@@ -10,7 +11,7 @@ export default class UserComponent extends React.Component {
     }
 
     onRemove() {
-        this.props.onRemove({data:"message"});
+        UserActions.remove({ id: 1 });
     }
 
     render() {

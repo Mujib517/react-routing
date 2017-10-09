@@ -12,31 +12,23 @@ export default class Users extends React.Component {
 
         this.state = { users: [], loading: true };
 
-        this.onRemove = this.onRemove.bind(this);
+        UserStore.addChangeListener(this.onChange.bind(this));
+
     }
 
-    componentDidMount() {
+    onChange() {
         UserStore
             .getAll()
             .then((response) => this.setState({ users: response.data, loading: false }));
     }
 
-    onchange() {
-        console.log('hitting on change');
-        this.setState({
-            users: UserStore.getAll()
-        });
+    componentDidMount() {
+        this.onChange();
     }
 
     componentWillUnmount() {
         UserStore.removeChangeListener(this.onchange);
     }
-
-    onRemove(data) {
-        console.log("remove on parent", data);
-        this.loadData();
-    }
-
 
     render() {
         let users = this.state.users;
