@@ -10,8 +10,8 @@ export default class UserComponent extends React.Component {
         this.onRemove = this.onRemove.bind(this);
     }
 
-    onRemove() {
-        UserActions.remove({ id: 1 });
+    onRemove(id) {
+        UserActions.remove({ id: id });
     }
 
     render() {
@@ -20,7 +20,7 @@ export default class UserComponent extends React.Component {
                 <img src={this.props.user.avatar_url} width="150" height="150" className="img img-circle" />
                 <div>
                     <Link to={'/users/' + this.props.user.login} > {this.props.user.login}</Link>
-                    <button className="btn btn-danger btn-sm pull-right" onClick={this.onRemove}>
+                    <button className="btn btn-danger btn-sm pull-right" onClick={()=>this.onRemove(this.props.user.id)}>
                         Remove &nbsp;
                         <i className="glyphicon glyphicon-remove"></i>
                     </button>
