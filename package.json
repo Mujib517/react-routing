@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": " concurrently --kill-others \"npm run build\" \"npm start\"",
+    "start": " concurrently --kill-others \"npm run build\" \"npm run dev\"",
     "build": "webpack -w",
-    "start": "webpack-dev-server"
+    "dev": "webpack-dev-server"
   },
   "keywords": [],
   "author": "MD M Rahman <mujib517@gmail.com>",
